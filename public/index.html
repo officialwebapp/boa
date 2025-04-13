@@ -3,298 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank of America - Banking, Credit Cards, Loans and Investing</title>
+    <title>Bank Of America - Banking, Credit Cards, Loans and Investing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Bank of America Style - Exact Match */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        :root {
-            --boa-red: #E31837;
-            --boa-dark-blue: #12326B;
-            --boa-white: #ffffff;
-            --boa-light-gray: #f5f7fa;
-            --boa-gray: #767676;
-            --boa-dark-gray: #333333;
-            --boa-border: #e5e5e5;
-            --boa-background: #f3f3f3;
-        }
-
-        body {
-            background-color: var(--boa-white);
-            margin: 0;
-            padding: 0;
-            color: var(--boa-dark-gray);
-        }
-
-        /* Header */
-        .header {
-            background-color: var(--boa-dark-blue);
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-text {
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--boa-white);
-        }
-        
-        .logo-icon {
-            margin-left: 5px;
-            color: var(--boa-red);
-            font-size: 24px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links li {
-            margin-left: 25px;
-        }
-        
-        .nav-links a {
-            color: var(--boa-white);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .auth-buttons {
-            display: flex;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-primary {
-            background-color: var(--boa-red);
-            color: var(--boa-white);
-            border: none;
-        }
-        
-        .btn-primary:hover {
-            background-color: #c41230;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: var(--boa-white);
-            border: 1px solid var(--boa-white);
-            margin-right: 10px;
-        }
-        
-        .btn-outline:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.bankofamerica.com/content/images/ContextualSiteGraphics/Images/en_US/Heros/Hero_Checking_Account_Options_A_1976x600.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--boa-white);
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 60px 0;
-            background-color: var(--boa-light-gray);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2rem;
-            color: var(--boa-dark-blue);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: var(--boa-white);
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--boa-red);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--boa-dark-blue);
-        }
-        
-        .feature-card p {
-            color: var(--boa-dark-gray);
-            line-height: 1.6;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            text-align: center;
-            background-color: var(--boa-white);
-        }
-        
-        .cta h2 {
-            font-size: 2rem;
-            color: var(--boa-dark-blue);
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            color: var(--boa-dark-gray);
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: var(--boa-dark-blue);
-            color: var(--boa-white);
-            padding: 40px 0;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: var(--boa-white);
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-bottom {
-            margin-top: 40px;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 14px;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .social-icons a {
-            color: var(--boa-white);
-            font-size: 1.5rem;
-            margin: 0 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-text">BANK OF America</div>
+                    <div class="logo-text">Bank Of America</div>
                     <div class="logo-icon">
                         <i class="fas fa-flag"></i>
                     </div>
@@ -325,7 +43,7 @@
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Why Choose Bank of America</h2>
+            <h2 class="section-title">Why Choose Bank Of America</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -355,7 +73,7 @@
     <section class="cta">
         <div class="container">
             <h2>Ready to take control of your finances?</h2>
-            <p>Join millions of customers who trust Bank of America for their banking needs. Open an account today and experience banking designed for you.</p>
+            <p>Join millions of customers who trust Bank Of America for their banking needs. Open an account today and experience banking designed for you.</p>
             <a href="signup.html" class="btn btn-primary">Open an Account</a>
         </div>
     </section>
@@ -396,7 +114,7 @@
                 <div class="footer-column">
                     <h3>About</h3>
                     <ul class="footer-links">
-                        <li><a href="#">About Bank of America</a></li>
+                        <li><a href="#">About Bank Of America</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Investor Relations</a></li>
                         <li><a href="#">Newsroom</a></li>
@@ -412,8 +130,8 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2024</span> Bank of America Corporation. All rights reserved.</p>
-                <p>Bank of America, N.A. Member FDIC. Equal Housing Lender</p>
+                <p>&copy; <span id="current-year">2024</span> Bank Of America Corporation. All rights reserved.</p>
+                <p>Bank Of America, N.A. Member FDIC. Equal Housing Lender</p>
             </div>
         </div>
     </footer>
