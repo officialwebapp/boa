@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Confirmation - Bank of America</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Bank of America Style - Exact Match */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    :root {
+      --boa-red: #E31837;
+      --boa-dark-blue: #12326B;
+      --boa-white: #ffffff;
+      --boa-light-gray: #f5f7fa;
+      --boa-gray: #767676;
+      --boa-dark-gray: #333333;
+      --boa-border: #e5e5e5;
+      --boa-background: #f3f3f3;
+      --boa-green: #26a65b;
+    }
+
+    body {
+      background-color: var(--boa-white);
+      margin: 0;
+      padding: 0;
+      color: var(--boa-dark-gray);
+    }
+
+    .mobile-container {
+      max-width: 414px;
+      margin: 0 auto;
+      background-color: var(--boa-white);
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .boa-header {
+      background-color: var(--boa-white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--boa-border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--boa-dark-blue);
+    }
+
+    .logo-icon {
+      margin-left: 5px;
+      color: var(--boa-red);
+      font-size: 20px;
+    }
+
+    .profile-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--boa-dark-gray);
+      font-size: 20px;
+    }
+
+    /* Confirmation Banner */
+    .confirmation-banner {
+      background-color: var(--boa-red);
+      padding: 20px 15px;
+      color: var(--boa-white);
+      text-align: center;
+    }
+
+    .banner-title {
+      font-size: 24px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .banner-subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* Confirmation Content */
+    .confirmation-content {
+      padding: 20px 15px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--boa-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--boa-white);
+      font-size: 40px;
+      margin: 0 auto 20px;
+    }
+
+    .confirmation-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .confirmation-message {
+      font-size: 16px;
+      color: var(--boa-gray);
+      margin-bottom: 30px;
+    }
+
+    .transaction-details {
+      background-color: var(--boa-light-gray);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      font-weight: bold;
+      color: var(--boa-gray);
+    }
+
+    .detail-value {
+      font-weight: bold;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .primary-btn {
+      padding: 15px;
+      background-color: var(--boa-red);
+      color: var(--boa-white);
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .secondary-btn {
+      padding: 15px;
+      background-color: var(--boa-white);
+      color: var(--boa-red);
+      border: 1px solid var(--boa-red);
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .countdown {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--boa-gray);
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 414px;
+      margin: 0 auto;
+      height: 60px;
+      background-color: var(--boa-white);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid var(--boa-border);
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 0;
+      width: 25%;
+    }
+
+    .nav-item.active {
+      color: var(--boa-red);
+    }
+
+    .nav-item i {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .nav-text {
+      font-size: 12px;
+    }
+
+    /* Content padding for bottom nav */
+    .boa-content {
+      padding-bottom: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-container">
+    <!-- Header -->
+    <header class="boa-header">
+      <div class="logo">
+        <div class="logo-text">BANK OF America</div>
+        <div class="logo-icon">
+          <i class="fas fa-flag"></i>
+        </div>
+      </div>
+      <div class="profile-icon">
+        <i class="fas fa-user"></i>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="boa-content">
+      <!-- Confirmation Banner -->
+      <section class="confirmation-banner">
+        <div class="banner-title">Transaction Confirmation</div>
+        <div class="banner-subtitle">Your transaction has been processed</div>
+      </section>
+
+      <!-- Confirmation Content -->
+      <section class="confirmation-content">
+        <div class="success-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="confirmation-title">Money Sent Successfully</div>
+        <div class="confirmation-message">The recipient will be notified about this transaction.</div>
+        
+        <div class="transaction-details">
+          <div class="detail-row">
+            <div class="detail-label">Transaction ID</div>
+            <div class="detail-value" id="transaction-id">TX-12345</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Date & Time</div>
+            <div class="detail-value" id="transaction-date">July 2, 2024 14:30:45</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Recipient</div>
+            <div class="detail-value" id="recipient-value">Account #: 0000000000</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Amount</div>
+            <div class="detail-value" id="transaction-amount">$100.00</div>
+          </div>
+          <div class="detail-row" id="note-row">
+            <div class="detail-label">Note</div>
+            <div class="detail-value" id="transaction-note">Thank you for the coffee!</div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="primary-btn" id="home-btn">Return to Home</button>
+          <button class="secondary-btn" id="new-transaction-btn">Make Another Transaction</button>
+        </div>
+        
+        <div class="countdown">
+          Redirecting to home in <span id="countdown">5</span> seconds...
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item">
+        <i class="fas fa-credit-card"></i>
+        <div class="nav-text">Accounts</div>
+      </div>
+      <div class="nav-item active">
+        <i class="fas fa-exchange-alt"></i>
+        <div class="nav-text">Pay & Transfer</div>
+      </div>
+      <div class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <div class="nav-text">Plan & Track</div>
+      </div>
+      <div class="nav-item">
+        <i class="fas fa-chart-bar"></i>
+        <div class="nav-text">Investment</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Get transaction data
+      const transactionDataString = localStorage.getItem("lastTransaction");
+      let transactionData = null;
+
+      if (transactionDataString) {
+        try {
+          transactionData = JSON.parse(transactionDataString);
+          
+          // Update transaction details
+          const transactionId = document.getElementById("transaction-id");
+          const transactionDate = document.getElementById("transaction-date");
+          const recipientValue = document.getElementById("recipient-value");
+          const transactionAmount = document.getElementById("transaction-amount");
+          const transactionNote = document.getElementById("transaction-note");
+          const noteRow = document.getElementById("note-row");
+          
+          // Generate a random transaction ID
+          if (transactionId) {
+            transactionId.textContent = "TX-" + Math.floor(Math.random() * 1000000);
+          }
+          
+          // Format date
+          if (transactionDate && transactionData.date) {
+            const date = new Date(transactionData.date);
+            transactionDate.textContent = date.toLocaleString();
+          }
+          
+          // Set recipient
+          if (recipientValue && transactionData.recipientAccountNumber) {
+            recipientValue.textContent = "Account #: " + transactionData.recipientAccountNumber;
+          }
+          
+          // Format amount
+          if (transactionAmount && transactionData.amount) {
+            transactionAmount.textContent = "$" + transactionData.amount.toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            });
+          }
+          
+          // Set note or hide note row if empty
+          if (transactionData.note) {
+            if (transactionNote) {
+              transactionNote.textContent = transactionData.note;
+            }
+          } else if (noteRow) {
+            noteRow.style.display = "none";
+          }
+        } catch (e) {
+          console.error("Error parsing transaction data:", e);
+        }
+      }
+
+      // Handle button clicks
+      const homeBtn = document.getElementById("home-btn");
+      const newTransactionBtn = document.getElementById("new-transaction-btn");
+      
+      if (homeBtn) {
+        homeBtn.addEventListener("click", () => {
+          window.location.href = "dashboard.html";
+        });
+      }
+      
+      if (newTransactionBtn) {
+        newTransactionBtn.addEventListener("click", () => {
+          window.location.href = "send-money.html";
+        });
+      }
+
+      // Countdown and redirect
+      const countdownElement = document.getElementById("countdown");
+      let countdown = 5;
+      
+      if (countdownElement) {
+        const interval = setInterval(() => {
+          countdown--;
+          countdownElement.textContent = countdown.toString();
+          
+          if (countdown <= 0) {
+            clearInterval(interval);
+            window.location.href = "dashboard.html";
+          }
+        }, 1000);
+      }
+
+      // Handle bottom navigation
+      const navItems = document.querySelectorAll(".nav-item");
+      navItems.forEach(item => {
+        item.addEventListener("click", function() {
+          const navText = this.querySelector(".nav-text").textContent;
+          
+          switch(navText) {
+            case "Accounts":
+              window.location.href = "dashboard.html";
+              break;
+            case "Pay & Transfer":
+              window.location.href = "send-money.html";
+              break;
+            case "Plan & Track":
+              window.location.href = "dashboard.html?tab=plan";
+              break;
+            case "Investment":
+              window.location.href = "dashboard.html?tab=investment";
+              break;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

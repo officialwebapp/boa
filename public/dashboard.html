@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank of America</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Bank of America Style - Exact Match */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    :root {
+      --boa-red: #E31837;
+      --boa-dark-blue: #12326B;
+      --boa-white: #ffffff;
+      --boa-light-gray: #f5f7fa;
+      --boa-gray: #767676;
+      --boa-dark-gray: #333333;
+      --boa-border: #e5e5e5;
+      --boa-background: #f3f3f3;
+    }
+
+    body {
+      background-color: var(--boa-white);
+      margin: 0;
+      padding: 0;
+      color: var(--boa-dark-gray);
+    }
+
+    .mobile-container {
+      max-width: 414px;
+      margin: 0 auto;
+      background-color: var(--boa-white);
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .boa-header {
+      background-color: var(--boa-white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--boa-border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--boa-dark-blue);
+    }
+
+    .logo-icon {
+      margin-left: 5px;
+      color: var(--boa-red);
+      font-size: 20px;
+    }
+
+    .profile-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--boa-dark-gray);
+      font-size: 20px;
+    }
+
+    /* Welcome Banner */
+    .welcome-banner {
+      background-color: var(--boa-red);
+      padding: 20px 15px;
+      color: var(--boa-white);
+    }
+
+    .welcome-text {
+      font-size: 24px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .welcome-date {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-btn {
+      background-color: var(--boa-white);
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: var(--boa-red);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .action-btn.icon-only {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+    }
+
+    /* Accounts Section */
+    .accounts-section {
+      padding: 20px 15px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .more-options {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--boa-dark-gray);
+      font-size: 20px;
+    }
+
+    .accounts-header {
+      background-color: var(--boa-red);
+      color: var(--boa-white);
+      padding: 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    .account-card {
+      border: 1px solid var(--boa-red);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .account-details {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--boa-white);
+    }
+
+    .account-type {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--boa-dark-gray);
+    }
+
+    .account-balance {
+      text-align: right;
+    }
+
+    .balance-amount {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .balance-label {
+      font-size: 14px;
+      color: var(--boa-gray);
+    }
+
+    .account-number {
+      font-size: 14px;
+      color: var(--boa-gray);
+      margin-top: 5px;
+    }
+
+    .open-account {
+      border: 1px dashed var(--boa-gray);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      color: var(--boa-dark-gray);
+      font-size: 18px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .open-account i {
+      margin-right: 10px;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 0 15px 20px;
+    }
+
+    .feature-card {
+      border: 1px solid var(--boa-border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      background-color: var(--boa-white);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--boa-dark-gray);
+      font-size: 20px;
+      margin-right: 15px;
+    }
+
+    .feature-details {
+      flex: 1;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .feature-description {
+      font-size: 14px;
+      color: var(--boa-gray);
+    }
+
+    .feature-arrow {
+      color: var(--boa-gray);
+      font-size: 20px;
+    }
+
+    /* Transactions Section */
+    .transactions-section {
+      padding: 20px 15px;
+    }
+
+    .transactions-list {
+      border: 1px solid var(--boa-border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .transaction-item {
+      padding: 15px;
+      border-bottom: 1px solid var(--boa-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .transaction-item:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-details {
+      flex: 1;
+    }
+
+    .transaction-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .transaction-date {
+      font-size: 14px;
+      color: var(--boa-gray);
+    }
+
+    .transaction-amount {
+      font-weight: bold;
+    }
+
+    .transaction-amount.credit {
+      color: green;
+    }
+
+    .transaction-amount.debit {
+      color: var(--boa-red);
+    }
+
+    .no-transactions {
+      padding: 20px;
+      text-align: center;
+      color: var(--boa-gray);
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 414px;
+      margin: 0 auto;
+      height: 60px;
+      background-color: var(--boa-white);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid var(--boa-border);
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 0;
+      width: 25%;
+    }
+
+    .nav-item.active {
+      color: var(--boa-red);
+    }
+
+    .nav-item i {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .nav-text {
+      font-size: 12px;
+    }
+
+    /* Content padding for bottom nav */
+    .boa-content {
+      padding-bottom: 80px;
+    }
+
+    /* Side Menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      height: 100%;
+      background-color: var(--boa-white);
+      z-index: 1000;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
+
+    .side-menu.active {
+      left: 0;
+    }
+
+    .menu-header {
+      background-color: var(--boa-red);
+      color: var(--boa-white);
+      padding: 20px 15px;
+    }
+
+    .menu-nav {
+      padding: 15px 0;
+    }
+
+    .menu-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-nav li {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--boa-border);
+    }
+
+    .menu-nav a {
+      color: var(--boa-dark-gray);
+      text-decoration: none;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-nav a i {
+      margin-right: 15px;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-container">
+    <!-- Header -->
+    <header class="boa-header">
+      <div class="logo">
+        <div class="logo-text">BANK OF America</div>
+        <div class="logo-icon">
+          <i class="fas fa-flag"></i>
+        </div>
+      </div>
+      <div class="profile-icon" id="profile-btn">
+        <i class="fas fa-user"></i>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="boa-content">
+      <!-- Welcome Banner -->
+      <section class="welcome-banner">
+        <div class="welcome-text">Good afternoon, <span id="user-name">User</span></div>
+        <div class="welcome-date" id="current-date">July 2, 2024</div>
+        <div class="action-buttons">
+          <button class="action-btn icon-only">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button class="action-btn" id="send-money-btn">
+            Send money
+          </button>
+        </div>
+      </section>
+
+      <!-- Accounts Section -->
+      <section class="accounts-section">
+        <div class="section-header">
+          <div class="section-title">Accounts</div>
+          <div class="more-options">
+            <i class="fas fa-ellipsis-h"></i>
+          </div>
+        </div>
+        
+        <div class="account-card">
+          <div class="accounts-header">
+            Bank accounts(1)
+          </div>
+          <div class="account-details">
+            <div class="account-type">
+              CHECKING ACCOUNT
+              <div class="account-number" id="account-number">Account #: 0000000000</div>
+            </div>
+            <div class="account-balance">
+              <div class="balance-amount" id="checking-balance">$0.00</div>
+              <div class="balance-label">Available balance</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="open-account">
+          <i class="fas fa-plus"></i>Open an account
+        </div>
+      </section>
+
+      <!-- Transactions Section -->
+      <section class="transactions-section">
+        <div class="section-header">
+          <div class="section-title">Recent Transactions</div>
+          <a href="transactions.html" style="color: var(--boa-red); text-decoration: none; font-size: 14px;">View All</a>
+        </div>
+        
+        <div class="transactions-list" id="transactions-list">
+          <div class="no-transactions" id="no-transactions">
+            No recent transactions
+          </div>
+          <!-- Transactions will be loaded here -->
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="feature-card" id="send-money-feature">
+          <div class="feature-icon">
+            <i class="fas fa-paper-plane"></i>
+          </div>
+          <div class="feature-details">
+            <div class="feature-title">Send Money</div>
+            <div class="feature-description">Transfer funds to other accounts</div>
+          </div>
+          <div class="feature-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        
+        <div class="feature-card" id="transactions-feature">
+          <div class="feature-icon">
+            <i class="fas fa-history"></i>
+          </div>
+          <div class="feature-details">
+            <div class="feature-title">Transaction History</div>
+            <div class="feature-description">View all your transactions</div>
+          </div>
+          <div class="feature-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item active">
+        <i class="fas fa-credit-card"></i>
+        <div class="nav-text">Accounts</div>
+      </div>
+      <div class="nav-item" id="nav-transfer">
+        <i class="fas fa-exchange-alt"></i>
+        <div class="nav-text">Pay & Transfer</div>
+      </div>
+      <div class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <div class="nav-text">Plan & Track</div>
+      </div>
+      <div class="nav-item">
+        <i class="fas fa-chart-bar"></i>
+        <div class="nav-text">Investment</div>
+      </div>
+    </div>
+
+    <!-- Side Menu (Hidden by default) -->
+    <div class="side-menu" id="side-menu">
+      <div class="menu-header">
+        <div class="welcome-text">Hello, <span id="menu-user-name">User</span></div>
+      </div>
+      <nav class="menu-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-credit-card"></i> Accounts</a>
+          </li>
+          <li>
+            <a href="send-money.html"><i class="fas fa-exchange-alt"></i> Transfers</a>
+          </li>
+          <li>
+            <a href="transactions.html"><i class="fas fa-history"></i> Transactions</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          </li>
+          <li>
+            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Overlay for Side Menu -->
+    <div class="overlay" id="overlay"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Check if user is logged in
+      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      if (!isLoggedIn) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Get user data from localStorage if available
+      const userString = localStorage.getItem("user");
+      let user = null;
+
+      if (userString) {
+        try {
+          user = JSON.parse(userString);
+          
+          // Update user name in UI
+          const userNameElements = document.querySelectorAll("#user-name, #menu-user-name");
+          userNameElements.forEach(el => {
+            if (el) el.textContent = user.name.split(" ")[0];
+          });
+          
+          // Update account number
+          const accountNumberElement = document.getElementById("account-number");
+          if (accountNumberElement && user.accountNumber) {
+            accountNumberElement.textContent = "Account #: " + user.accountNumber;
+          }
+          
+          // Update balance display with the exact format
+          const checkingBalanceElement = document.getElementById("checking-balance");
+          if (checkingBalanceElement) {
+            // Format to match the exact style in the screenshot
+            checkingBalanceElement.textContent = "$" + (user.balance || 0).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            });
+          }
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+        }
+      }
+
+      // Set current date
+      const currentDateElement = document.getElementById("current-date");
+      if (currentDateElement) {
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        currentDateElement.textContent = now.toLocaleDateString('en-US', options);
+      }
+
+      // Handle profile button click to open side menu
+      const profileBtn = document.getElementById("profile-btn");
+      const sideMenu = document.getElementById("side-menu");
+      const overlay = document.getElementById("overlay");
+
+      if (profileBtn && sideMenu && overlay) {
+        profileBtn.addEventListener("click", () => {
+          sideMenu.classList.add("active");
+          overlay.classList.add("active");
+        });
+      }
+
+      if (overlay && sideMenu) {
+        overlay.addEventListener("click", () => {
+          sideMenu.classList.remove("active");
+          overlay.classList.remove("active");
+        });
+      }
+
+      // Handle logout
+      const logoutBtn = document.getElementById("logout-btn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("user");
+          window.location.href = "login.html";
+        });
+      }
+
+      // Handle send money button
+      const sendMoneyBtn = document.getElementById("send-money-btn");
+      const sendMoneyFeature = document.getElementById("send-money-feature");
+      const navTransfer = document.getElementById("nav-transfer");
+      
+      if (sendMoneyBtn) {
+        sendMoneyBtn.addEventListener("click", () => {
+          window.location.href = "send-money.html";
+        });
+      }
+      
+      if (sendMoneyFeature) {
+        sendMoneyFeature.addEventListener("click", () => {
+          window.location.href = "send-money.html";
+        });
+      }
+      
+      if (navTransfer) {
+        navTransfer.addEventListener("click", () => {
+          window.location.href = "send-money.html";
+        });
+      }
+
+      // Handle transactions feature
+      const transactionsFeature = document.getElementById("transactions-feature");
+      if (transactionsFeature) {
+        transactionsFeature.addEventListener("click", () => {
+          window.location.href = "transactions.html";
+        });
+      }
+
+      // Load recent transactions
+      loadRecentTransactions();
+    });
+
+    // Function to load recent transactions
+    function loadRecentTransactions() {
+      const transactionsList = document.getElementById("transactions-list");
+      const noTransactionsElement = document.getElementById("no-transactions");
+      
+      if (!transactionsList) return;
+      
+      // Get user data
+      const userString = localStorage.getItem("user");
+      if (!userString) return;
+      
+      const user = JSON.parse(userString);
+      
+      // Get transactions from localStorage
+      const transactionsString = localStorage.getItem("transactions");
+      let transactions = [];
+      
+      if (transactionsString) {
+        try {
+          transactions = JSON.parse(transactionsString);
+          
+          // Filter transactions for current user
+          const userTransactions = transactions.filter(t => 
+            t.senderAccountNumber === user.accountNumber || 
+            t.recipientAccountNumber === user.accountNumber
+          );
+          
+          // Sort by date (newest first)
+          userTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+          
+          // Take only the 5 most recent
+          const recentTransactions = userTransactions.slice(0, 5);
+          
+          if (recentTransactions.length > 0) {
+            // Hide no transactions message
+            if (noTransactionsElement) {
+              noTransactionsElement.style.display = "none";
+            }
+            
+            // Clear existing transactions
+            transactionsList.innerHTML = "";
+            
+            // Add transactions to the list
+            recentTransactions.forEach(transaction => {
+              const isCredit = transaction.recipientAccountNumber === user.accountNumber;
+              const transactionItem = document.createElement("div");
+              transactionItem.className = "transaction-item";
+              
+              const formattedDate = new Date(transaction.date).toLocaleDateString();
+              const formattedAmount = "$" + transaction.amount.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+              });
+              
+              transactionItem.innerHTML = `
+                <div class="transaction-details">
+                  <div class="transaction-title">${isCredit ? 'Received from' : 'Sent to'} ${isCredit ? transaction.senderName || 'Unknown' : transaction.recipientName || 'Unknown'}</div>
+                  <div class="transaction-date">${formattedDate}</div>
+                </div>
+                <div class="transaction-amount ${isCredit ? 'credit' : 'debit'}">
+                  ${isCredit ? '+' : '-'}${formattedAmount}
+                </div>
+              `;
+              
+              transactionsList.appendChild(transactionItem);
+            });
+          }
+        } catch (e) {
+          console.error("Error parsing transactions:", e);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
